@@ -1,9 +1,12 @@
-import logo from './logo.svg';
+import React from 'react';
+import Names from './Names';
 import './App.css';
 
 function App() {
-  let babyNames = require("./babyNamesData.json");
-  return ();
+  const babyNames = require("./babyNamesData.json");
+
+  return (<Names babyNames={babyNames}/>
+  );
 }
 
 export default App;
