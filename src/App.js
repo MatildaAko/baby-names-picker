@@ -1,11 +1,14 @@
 import React from 'react';
-import Names from './Names';
+
+import Search from './SearchList'
 import './App.css';
 
 function App() {
-  const babyNames = require("./babyNamesData.json");
-
-  return (<Names babyNames={babyNames}/>
+  return (
+    <div className="App">
+      <Search />
+      
+    </div>
   );
 }
 
