@@ -1,22 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
+import NamesButton from "./NamesButton"
+
 
 const Names = (props) => {
-  const { babyNames, searchTerm } = props;
-  console.log(props)
+  const { babyNames, searchTerm, changeFavourites } = props;
+  
   return babyNames
     .sort((a, b) => (a.name === b.name ? 0 : a.name > b.name ? 1 : -1))
     .filter((val) => {
-      if (searchTerm === "") {
-        return val;
-      } else if (val.name.toLowerCase().includes(searchTerm)) {
-        return val;
-      }
+      return searchTerm === "" ? val : val.name.toLowerCase().includes(searchTerm) && val;
     })
     .map((name, index) => (
-      <button key={index} className={name.sex === "f" ? "gold" : "silver"}>
-        {name.name}
-      </button>
+      <NamesButton name={name} index={index} changeFavourites={changeFavourites}/>
     ));
-}
+};
 
 export default Names;
