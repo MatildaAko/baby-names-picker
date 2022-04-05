@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import Names from "./Names";
-import Search from "./SearchList";
+import React from "react";
+// import Names from "./Names";
+// import Search from "./SearchList";
 
-const Favourites = (props) => {
+const Favourites = () => {
   // const [likeName, setLikeName] = useState(false);
   // function changeFavourites() {
   //   setLikeName(!likeName);

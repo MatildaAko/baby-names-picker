@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import Names from "./Names";
-import Favourites from "./Favourites";
+import React from "react";
+// import Names from "./Names";
+// import Favourites from "./Favourites";
 
 const Search = ({setSearchTerm}) => {
   // const babyNames = require("./babyNamesData.json");
