@@ -1,13 +1,8 @@
-import React, {useState} from "react";
+import React from "react";
 
-const NamesButton = ({ name, index }) => {
-  const [likeName, setLikeName] = useState(false);
-  function changeFavourites() {
-    setLikeName(!likeName);
-    console.log(likeName);
-  }
+const NamesButton = ({ name, index, onClick }) => {
   return (
-      <button key={index} className={name.sex === "f" ? "gold" : "silver"} onClick={changeFavourites}>
+      <button key={index} className={name.sex === "f" ? "gold" : "silver"} onClick={onClick}>
         {name.name}
       </button>
   );

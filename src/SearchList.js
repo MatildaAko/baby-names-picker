@@ -1,10 +1,6 @@
 import React from "react";
-// import Names from "./Names";
-// import Favourites from "./Favourites";
 
-const Search = ({setSearchTerm}) => {
-  // const babyNames = require("./babyNamesData.json");
-  // const [searchTerm, setSearchTerm] = useState("");
+const Search = ({searchTerm, setSearchTerm}) => {
   return (
     <div>
       <div>
@@ -12,6 +8,7 @@ const Search = ({setSearchTerm}) => {
           type="search"
           className="search-bar"
           placeholder="Search Names..."
+          value={searchTerm}
           onChange={(event) => {
             setSearchTerm(event.target.value);
           }}

@@ -1,17 +1,22 @@
 import React from "react";
-// import Names from "./Names";
-// import Search from "./SearchList";
+import NamesButton from "./NamesButton";
 
-const Favourites = () => {
-  // const [likeName, setLikeName] = useState(false);
-  // function changeFavourites() {
-  //   setLikeName(!likeName);
-  //   console.log(likeName);
-  // }
+const Favourites = ({ favourites, setFavourites, singleName, setSingleName }) => {
   return (
     <div>
       <p>Favourites</p>
       <div>
+        {favourites.map((favourite, index) => (
+          <NamesButton
+            key={index}
+            name={favourite}
+            index={index}
+            onClick={() => {
+              setFavourites(favourites.filter((name) => !favourite.name.includes(name.name)));
+              setSingleName(singleName.concat(favourite));
+            }}
+          />
+        ))}
       </div>
       <hr />
     </div>

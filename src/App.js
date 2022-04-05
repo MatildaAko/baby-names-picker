@@ -9,11 +9,23 @@ import Names from './Names';
 function App() {
   const babyNames = require("./babyNamesData.json");
   const [searchTerm, setSearchTerm] = useState("");
+  const [favourites, setFavourites] = useState([])
+  const [singleName, setSingleName] = useState(babyNames)
   return (
     <div className="App">
-      <Search setSearchTerm={setSearchTerm} />
-      <Favourites />
-      <Names babyNames={babyNames} searchTerm={searchTerm} />
+      <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <Favourites
+        favourites={favourites}
+        setFavourites={setFavourites} singleName={singleName}
+        setSingleName={setSingleName} />
+      <Names
+        babyNames={babyNames}
+        searchTerm={searchTerm}
+        favourites={favourites}
+        setFavourites={setFavourites}
+        singleName={singleName}
+        setSingleName={setSingleName}
+      />
     </div>
   );
 }
