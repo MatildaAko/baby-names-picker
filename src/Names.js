@@ -2,11 +2,15 @@ import React from "react";
 import NamesButton from "./NamesButton"
 
 
-const Names = ({  searchTerm, setFavourites, favourites, singleName, setSingleName }) => {
+const Names = ({  searchTerm, setFavourites, favourites, singleName, setSingleName, gender, setGender }) => {
   return singleName
-    .sort((a, b) => (a.name === b.name ? 0 : a.name > b.name ? 1 : -1))
-    .filter((val) => {
-      return searchTerm === "" ? val : val.name.toLowerCase().includes(searchTerm) && val;
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .filter((babyNameEntry) => {
+      return searchTerm === "" ? babyNameEntry : babyNameEntry.name.toLowerCase().includes(searchTerm) && babyNameEntry;
+    })
+    .filter((babyNameEntry) => {
+      // return babyNameEntry.sex === gender ;
+      return gender === "both" ? babyNameEntry : babyNameEntry.sex === gender;
     })
     .map((name, index) => (
       <NamesButton
@@ -14,7 +18,7 @@ const Names = ({  searchTerm, setFavourites, favourites, singleName, setSingleNa
         name={name}
         index={index}
         onClick={() => {
-          !favourites.includes(name) && setFavourites(favourites.concat(name));
+          setFavourites(favourites.concat(name));
           setSingleName(singleName.filter((person) => !name.name.includes(person.name)));
         }}
       />

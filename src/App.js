@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 
-import Search from './SearchList'
+import Search from './Search'
 import './App.css';
 import Favourites from './Favourites';
 import Names from './Names';
+import GenderButton from './GenderButton';
 
 
 function App() {
@@ -11,13 +12,21 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [favourites, setFavourites] = useState([])
   const [singleName, setSingleName] = useState(babyNames)
+  const [gender, setGender] = useState("both")
   return (
     <div className="App">
-      <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <div>
+        <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        <GenderButton gender={gender} setGender={setGender} />
+      </div>
+
       <Favourites
+        searchTerm={searchTerm}
         favourites={favourites}
-        setFavourites={setFavourites} singleName={singleName}
-        setSingleName={setSingleName} />
+        setFavourites={setFavourites}
+        singleName={singleName}
+        setSingleName={setSingleName}
+      />
       <Names
         babyNames={babyNames}
         searchTerm={searchTerm}
@@ -25,6 +34,8 @@ function App() {
         setFavourites={setFavourites}
         singleName={singleName}
         setSingleName={setSingleName}
+        gender={gender}
+        setGender={setGender}
       />
     </div>
   );
