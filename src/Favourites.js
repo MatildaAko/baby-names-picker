@@ -1,7 +1,7 @@
 import React from "react";
 import NamesButton from "./NamesButton";
 
-const Favourites = ({searchTerm, favourites, setFavourites, singleName, setSingleName }) => {
+const Favourites = ({searchTerm, favourites, setFavourites, singleName, setSingleName, gender }) => {
   return (
     <div>
       <p>Favourites</p>
@@ -9,6 +9,9 @@ const Favourites = ({searchTerm, favourites, setFavourites, singleName, setSingl
         {favourites
           .filter((val) => {
             return searchTerm === "" ? val : val.name.toLowerCase().includes(searchTerm) && val;
+          })
+          .filter((val) => {
+            return gender === "both" ? val : val.sex === gender;
           })
           .map((favourite, index) => (
             <NamesButton

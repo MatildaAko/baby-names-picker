@@ -1,18 +1,17 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
 
-import Search from './Search'
-import './App.css';
-import Favourites from './Favourites';
-import Names from './Names';
-import GenderButton from './GenderButton';
-
+import Search from "./Search";
+import "./App.css";
+import Favourites from "./Favourites";
+import Names from "./Names";
+import GenderButton from "./GenderButton";
 
 function App() {
   const babyNames = require("./babyNamesData.json");
   const [searchTerm, setSearchTerm] = useState("");
-  const [favourites, setFavourites] = useState([])
-  const [singleName, setSingleName] = useState(babyNames)
-  const [gender, setGender] = useState("both")
+  const [favourites, setFavourites] = useState([]);
+  const [singleName, setSingleName] = useState(babyNames);
+  const [gender, setGender] = useState("both");
   return (
     <div className="App">
       <div>
@@ -26,6 +25,7 @@ function App() {
         setFavourites={setFavourites}
         singleName={singleName}
         setSingleName={setSingleName}
+        gender={gender}
       />
       <Names
         babyNames={babyNames}
@@ -35,7 +35,6 @@ function App() {
         singleName={singleName}
         setSingleName={setSingleName}
         gender={gender}
-        setGender={setGender}
       />
     </div>
   );
